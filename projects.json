@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "title": "Personal Portfolio Website",
+        "category": "Web Development",
+        "image": "assets/project1.jpg",
+        "description": "A modern responsive portfolio website built with HTML, CSS and JavaScript with animations and dark mode.",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "github": "https://github.com/scsabbir",
+        "demo": "#"
+    },
+
+    {
+        "id": 2,
+        "title": "Frozen Mart 360 E-commerce Website",
+        "category": "E-commerce",
+        "image": "assets/project2.jpg",
+        "description": "An online frozen food and grocery store website with product listing, shopping features and modern UI.",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "PHP",
+            "MySQL"
+        ],
+        "github": "#",
+        "demo": "https://www.frozenmart360.com"
+    },
+
+    {
+        "id": 3,
+        "title": "Dhaka Offline Map Application",
+        "category": "Programming",
+        "image": "assets/project3.jpg",
+        "description": "A C++ based offline route navigation system that displays locations, routes and distances.",
+        "technologies": [
+            "C++",
+            "Data Structure",
+            "Algorithm"
+        ],
+        "github": "#",
+        "demo": "#"
+    },
+
+    {
+        "id": 4,
+        "title": "Student Management System",
+        "category": "Software Development",
+        "image": "assets/project4.jpg",
+        "description": "A management system for storing student information, searching data and generating reports.",
+        "technologies": [
+            "C++",
+            "File Handling"
+        ],
+        "github": "#",
+        "demo": "#"
+    },
+
+    {
+        "id": 5,
+        "title": "Responsive Business Website",
+        "category": "Frontend",
+        "image": "assets/project5.jpg",
+        "description": "A professional business website with responsive design and modern user interface.",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "github": "#",
+        "demo": "#"
+    },
+
+    {
+        "id": 6,
+        "title": "Arduino Smart Project",
+        "category": "Hardware",
+        "image": "assets/project6.jpg",
+        "description": "An Arduino based electronics project combining hardware components and programming logic.",
+        "technologies": [
+            "Arduino",
+            "Embedded C",
+            "Electronics"
+        ],
+        "github": "#",
+        "demo": "#"
+    }
+]
