@@ -1,231 +1,356 @@
-/* ==========================================================================
-   Md. Sabbir Chowdury — Portfolio
-   ========================================================================== */
+// =========================================
+// Portfolio JavaScript
+// Part 1
+// =========================================
 
-document.addEventListener('DOMContentLoaded', () => {
-  hideLoader();
-  runTypingEffect();
-  renderProjects();
-  setupScrollspy();
-  setupRevealOnScroll();
-  setupFooterStatusBar();
+// ---------- Loader ----------
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    loader.style.opacity = "0";
+
+    loader.style.visibility = "hidden";
+
+    loader.style.transition = "0.6s";
+
 });
 
-/* ---------------------------------- */
-/* Loader                              */
-/* ---------------------------------- */
+// ---------- Typing Effect ----------
 
-function hideLoader() {
-  const loader = document.querySelector('.loader');
-  if (!loader) return;
-  const inner = loader.querySelector('div');
-  if (inner) inner.textContent = '$ portfolio --ready';
-  window.addEventListener('load', () => {
-    setTimeout(() => loader.classList.add('loader-hidden'), 400);
-  });
-  // fallback in case 'load' already fired
-  setTimeout(() => loader.classList.add('loader-hidden'), 1500);
-}
+const typing = document.getElementById("typing");
 
-/* ---------------------------------- */
-/* Typing effect                       */
-/* ---------------------------------- */
+const words = [
 
-function runTypingEffect() {
-  const el = document.getElementById('typing');
-  if (!el) return;
+    "Full Stack Developer",
 
-  const roles = [
-    'Full Stack Developer',
-    'Problem Solver',
-    'Open Source Enthusiast',
-    'C++ & Python Programmer'
-  ];
+    "Frontend Developer",
 
-  const cursor = document.createElement('span');
-  cursor.className = 'cursor';
+    "Backend Developer",
 
-  const textNode = document.createElement('span');
-  el.appendChild(textNode);
-  el.appendChild(cursor);
+    "JavaScript Developer",
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    "Web Designer"
 
-  if (prefersReducedMotion) {
-    textNode.textContent = roles[0];
-    return;
-  }
-
-  let roleIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
-  const TYPE_SPEED = 70;
-  const DELETE_SPEED = 40;
-  const HOLD_TIME = 1400;
-
-  function tick() {
-    const current = roles[roleIndex];
-
-    if (!deleting) {
-      charIndex++;
-      textNode.textContent = current.slice(0, charIndex);
-      if (charIndex === current.length) {
-        deleting = true;
-        setTimeout(tick, HOLD_TIME);
-        return;
-      }
-      setTimeout(tick, TYPE_SPEED);
-    } else {
-      charIndex--;
-      textNode.textContent = current.slice(0, charIndex);
-      if (charIndex === 0) {
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-      }
-      setTimeout(tick, DELETE_SPEED);
-    }
-  }
-
-  setTimeout(tick, 500);
-}
-
-/* ---------------------------------- */
-/* Projects                            */
-/* ---------------------------------- */
-/* Replace this data with your real projects — name, description, tags,
-   and links. Set "live" or "code" to null to hide that link. */
-
-const projects = [
-  {
-    name: 'ecommerce-platform.app',
-    description: 'A full-featured online store with cart, checkout, and an admin dashboard for managing inventory and orders.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Express'],
-    live: '#',
-    code: 'https://github.com/scsabbir'
-  },
-  {
-    name: 'task-manager.app',
-    description: 'A collaborative task management tool with JWT authentication, boards, and real-time status updates.',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-    live: '#',
-    code: 'https://github.com/scsabbir'
-  },
-  {
-    name: 'weather-dashboard.py',
-    description: 'A weather forecast dashboard powered by a Flask API, with a clean vanilla JS frontend and 5-day outlook.',
-    tags: ['Python', 'Flask', 'JavaScript', 'REST API'],
-    live: '#',
-    code: 'https://github.com/scsabbir'
-  },
-  {
-    name: 'library-system.cpp',
-    description: 'A console-based library management system with file-based storage for book records, checkouts, and returns.',
-    tags: ['C++', 'DSA', 'File I/O'],
-    live: null,
-    code: 'https://github.com/scsabbir'
-  }
 ];
 
-function renderProjects() {
-  const container = document.getElementById('project-container');
-  if (!container) return;
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
 
-  container.innerHTML = projects.map(project => `
-    <article class="project-card reveal">
-      <h3 class="file-name">${escapeHTML(project.name)}</h3>
-      <p class="desc">${escapeHTML(project.description)}</p>
-      <div class="tags">
-        ${project.tags.map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}
-      </div>
-      <div class="links">
-        ${project.live ? `<a href="${project.live}" target="_blank" rel="noopener">Live</a>` : ''}
-        ${project.code ? `<a href="${project.code}" target="_blank" rel="noopener">Code</a>` : ''}
-      </div>
-    </article>
-  `).join('');
+function typeEffect() {
 
-  // newly injected cards need to be observed for the reveal animation
-  document.querySelectorAll('#project-container .reveal').forEach(el => revealObserver.observe(el));
-}
+    const current = words[wordIndex];
 
-function escapeHTML(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
+    if (!deleting) {
 
-/* ---------------------------------- */
-/* Scrollspy — highlights active tab   */
-/* ---------------------------------- */
+        typing.textContent = current.substring(0, charIndex++);
+        
+        if (charIndex > current.length) {
 
-function setupScrollspy() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav a');
+            deleting = true;
 
-  const spy = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.toggle('active-tab', link.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+            setTimeout(typeEffect, 1500);
 
-  sections.forEach(section => spy.observe(section));
-}
+            return;
 
-/* ---------------------------------- */
-/* Reveal on scroll                    */
-/* ---------------------------------- */
+        }
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+    } else {
+
+        typing.textContent = current.substring(0, charIndex--);
+
+        if (charIndex < 0) {
+
+            deleting = false;
+
+            wordIndex++;
+
+            if (wordIndex >= words.length) {
+
+                wordIndex = 0;
+
+            }
+
+        }
+
     }
-  });
-}, { threshold: 0.15 });
 
-function setupRevealOnScroll() {
-  const targets = document.querySelectorAll(
-    '.about-card, #skills .card, #contact .card, .stats > div'
-  );
-  targets.forEach(el => {
-    el.classList.add('reveal');
-    revealObserver.observe(el);
-  });
+    setTimeout(typeEffect, deleting ? 45 : 100);
+
 }
 
-/* ---------------------------------- */
-/* Footer status bar                   */
-/* ---------------------------------- */
+typeEffect();
 
-function setupFooterStatusBar() {
-  const footer = document.querySelector('footer');
-  if (!footer) return;
+// ---------- Dark / Light Theme ----------
 
-  const branch = document.createElement('p');
-  branch.className = 'status-item';
-  branch.textContent = 'main';
-  footer.prepend(branch);
+const themeBtn = document.getElementById("theme-btn");
 
-  const clock = document.createElement('p');
-  clock.className = 'clock-item';
-  footer.appendChild(clock);
+themeBtn.addEventListener("click", () => {
 
-  function updateClock() {
-    const time = new Intl.DateTimeFormat('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZone: 'Asia/Dhaka'
-    }).format(new Date());
-    clock.textContent = `${time} GMT+6`;
-  }
+    document.body.classList.toggle("light");
 
-  updateClock();
-  setInterval(updateClock, 30000);
+    const icon = themeBtn.querySelector("i");
+
+    if (document.body.classList.contains("light")) {
+
+        icon.classList.remove("fa-moon");
+
+        icon.classList.add("fa-sun");
+
+    } else {
+
+        icon.classList.remove("fa-sun");
+
+        icon.classList.add("fa-moon");
+
+    }
+
+});
+
+// ---------- Scroll To Top ----------
+
+const topBtn = document.getElementById("scrollTop");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500) {
+
+        topBtn.style.display = "flex";
+
+    } else {
+
+        topBtn.style.display = "none";
+
+    }
+
+});
+
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+// ---------- Active Navigation ----------
+
+const sections = document.querySelectorAll("section");
+
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const top = section.offsetTop - 120;
+
+        const height = section.offsetHeight;
+
+        if (window.scrollY >= top) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+// =========================================
+// Portfolio JavaScript
+// Part 2
+// =========================================
+
+// ---------- Save Theme ----------
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+
+    document.body.classList.add("light");
+
+    const icon = document.querySelector("#theme-btn i");
+
+    if (icon) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+    }
+
 }
+
+const themeButton = document.getElementById("theme-btn");
+
+if (themeButton) {
+
+    themeButton.addEventListener("click", () => {
+
+        if (document.body.classList.contains("light")) {
+
+            localStorage.setItem("theme", "light");
+
+        } else {
+
+            localStorage.setItem("theme", "dark");
+
+        }
+
+    });
+
+}
+
+// ---------- Navbar Background ----------
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 80) {
+
+        header.style.background = "rgba(15,23,42,.92)";
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.25)";
+
+    } else {
+
+        header.style.background = "rgba(15,23,42,.65)";
+        header.style.boxShadow = "none";
+
+    }
+
+});
+
+// ---------- Reveal Animation ----------
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+}, {
+
+    threshold: .15
+
+});
+
+document.querySelectorAll(".section").forEach(section => {
+
+    observer.observe(section);
+
+});
+
+// ---------- Counter Animation ----------
+
+const counters = document.querySelectorAll(".stat-box h2");
+
+counters.forEach(counter => {
+
+    const text = counter.innerText;
+
+    const number = parseInt(text);
+
+    const suffix = text.replace(number, "");
+
+    let current = 0;
+
+    const timer = setInterval(() => {
+
+        current++;
+
+        counter.innerText = current + suffix;
+
+        if (current >= number) {
+
+            counter.innerText = number + suffix;
+
+            clearInterval(timer);
+
+        }
+
+    }, 40);
+
+});
+
+// ---------- Contact Form ----------
+
+const form = document.querySelector(".contact-form");
+
+if (form) {
+
+    form.addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        alert("Thank you! Your message has been received.");
+
+        form.reset();
+
+    });
+
+}
+
+// ---------- Hover Tilt ----------
+
+document.querySelectorAll(".project-card").forEach(card => {
+
+    card.addEventListener("mousemove", (e) => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+
+        const y = e.clientY - rect.top;
+
+        const rotateY = (x / rect.width - .5) * 12;
+
+        const rotateX = (rect.height / 2 - y) / 12;
+
+        card.style.transform =
+            `perspective(900px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-8px)`;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform =
+            "perspective(900px) rotateX(0) rotateY(0)";
+
+    });
+
+});
+
+// ---------- Console Message ----------
+
+console.log("%cWelcome to Sabbir's Portfolio",
+"color:#06b6d4;font-size:20px;font-weight:bold;");
+
+console.log("%cDeveloped by Md. Sabbir Chowdury",
+"color:#4f46e5;font-size:14px;");
