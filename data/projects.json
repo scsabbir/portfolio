@@ -1,1 +1,44 @@
+[
+    {
+        "id":1,
+        "title":"Sabbir Portfolio Pro",
+        "category":"web",
+        "image":"assets/images/project-1.jpg",
+        "description":"A modern responsive personal portfolio website built with HTML, CSS and JavaScript with animation and dark mode features.",
+        "live":"https://scsabbir.github.io/portfolio/",
+        "github":"https://github.com/scsabbir"
+    },
 
+
+    {
+        "id":2,
+        "title":"Frozen Mart 360",
+        "category":"business",
+        "image":"assets/images/project-2.jpg",
+        "description":"A professional e-commerce business website for frozen food products with product showcase and customer-focused design.",
+        "live":"https://www.frozenmart360.com",
+        "github":"https://github.com/scsabbir"
+    },
+
+
+    {
+        "id":3,
+        "title":"Business Landing Page",
+        "category":"web",
+        "image":"assets/images/project-3.jpg",
+        "description":"High converting landing page designed for businesses with responsive layout and modern user interface.",
+        "live":"#",
+        "github":"https://github.com/scsabbir"
+    },
+
+
+    {
+        "id":4,
+        "title":"Graphics Design Collection",
+        "category":"design",
+        "image":"assets/images/project-4.jpg",
+        "description":"Creative branding, social media graphics and visual design projects created for different brands.",
+        "live":"#",
+        "github":"https://github.com/scsabbir"
+    }
+]
