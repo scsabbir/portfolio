@@ -1,1 +1,13 @@
+# ==================================
+# Sabbir Portfolio Pro
+# robots.txt
+# ==================================
 
+User-agent: *
+
+Allow: /
+
+
+# Sitemap Location
+
+Sitemap: https://scsabbir.github.io/portfolio/sitemap.xml
