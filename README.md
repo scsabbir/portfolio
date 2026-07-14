@@ -1,6 +1,6 @@
 # 🚀 Sabbir Chowdhury - Portfolio
 
-![Portfolio Banner](assets/images/banner.png)
+![Portfolio Banner](assets/images/banner.jpg)
 
 
 ## 👨‍💻 About Me
