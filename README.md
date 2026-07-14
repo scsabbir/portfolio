@@ -1,6 +1,6 @@
 # 🚀 Sabbir Chowdhury - Portfolio
 
-![Portfolio Banner](assets/images/banner.jpg)
+![Portfolio Banner](assets/images/favicon.jpg)
 
 
 ## 👨‍💻 About Me
@@ -120,7 +120,7 @@ Examples:
 
 
 📧 Email:
-yourmail@gmail.com
+chowdhurysabbir0001@gmail.com
 
 
 📍 Location:
