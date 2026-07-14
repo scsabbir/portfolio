@@ -1,1 +1,688 @@
+/*==================================================
+    Sabbir Portfolio Pro
+    File : animations.css
+==================================================*/
 
+
+/*==============================
+        Fade Animations
+==============================*/
+
+
+.fade-up{
+
+    animation:fadeUp .8s ease forwards;
+
+}
+
+
+.fade-down{
+
+    animation:fadeDown .8s ease forwards;
+
+}
+
+
+.fade-left{
+
+    animation:fadeLeft .8s ease forwards;
+
+}
+
+
+.fade-right{
+
+    animation:fadeRight .8s ease forwards;
+
+}
+
+
+
+
+
+@keyframes fadeUp{
+
+
+from{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+@keyframes fadeDown{
+
+
+from{
+
+    opacity:0;
+
+    transform:translateY(-50px);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+@keyframes fadeLeft{
+
+
+from{
+
+    opacity:0;
+
+    transform:translateX(-60px);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+@keyframes fadeRight{
+
+
+from{
+
+    opacity:0;
+
+    transform:translateX(60px);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Zoom Animation
+==============================*/
+
+
+.zoom-in{
+
+    animation:zoomIn .8s ease forwards;
+
+}
+
+
+
+@keyframes zoomIn{
+
+
+from{
+
+    opacity:0;
+
+    transform:scale(.8);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Floating Effect
+==============================*/
+
+
+.float-animation{
+
+
+animation:floatAnimation 4s ease-in-out infinite;
+
+
+}
+
+
+
+@keyframes floatAnimation{
+
+
+0%{
+
+    transform:translateY(0);
+
+}
+
+
+50%{
+
+    transform:translateY(-15px);
+
+}
+
+
+100%{
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/*==============================
+        Glow Effect
+==============================*/
+
+
+.glow{
+
+
+animation:glowEffect 2s infinite alternate;
+
+
+}
+
+
+
+@keyframes glowEffect{
+
+
+from{
+
+    box-shadow:0 0 10px rgba(79,70,229,.3);
+
+}
+
+
+to{
+
+    box-shadow:0 0 35px rgba(6,182,212,.6);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Button Animation
+==============================*/
+
+
+.btn{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+.btn::before{
+
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-100%;
+
+width:100%;
+
+height:100%;
+
+background:rgba(255,255,255,.15);
+
+transition:.5s;
+
+
+}
+
+
+
+.btn:hover::before{
+
+
+left:100%;
+
+
+}
+
+
+
+
+
+
+
+
+
+/*==============================
+        Card Animation
+==============================*/
+
+
+.skill-card,
+.service-card,
+.project-card,
+.stat-card,
+.github-card,
+.certificate-card,
+.testimonial-card{
+
+
+animation:cardShow .8s ease forwards;
+
+
+}
+
+
+
+
+@keyframes cardShow{
+
+
+from{
+
+
+opacity:0;
+
+transform:translateY(40px);
+
+
+}
+
+
+
+to{
+
+
+opacity:1;
+
+transform:translateY(0);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/*==============================
+        Image Animation
+==============================*/
+
+
+.profile-card img{
+
+
+transition:.5s;
+
+
+}
+
+
+
+.profile-card:hover img{
+
+
+transform:scale(1.05);
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Text Gradient Animation
+==============================*/
+
+
+.gradient-text{
+
+
+background:linear-gradient(
+90deg,
+#4F46E5,
+#06B6D4
+);
+
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+
+background-size:200%;
+
+
+animation:gradientMove 3s infinite;
+
+
+}
+
+
+
+
+
+@keyframes gradientMove{
+
+
+0%{
+
+background-position:0%;
+
+}
+
+
+50%{
+
+background-position:100%;
+
+}
+
+
+100%{
+
+background-position:0%;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Typing Cursor
+==============================*/
+
+
+#typing::after{
+
+
+content:"|";
+
+animation:blink .8s infinite;
+
+
+}
+
+
+
+
+@keyframes blink{
+
+
+50%{
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Scroll Reveal
+==============================*/
+
+
+.reveal{
+
+
+opacity:0;
+
+transform:translateY(50px);
+
+transition:1s ease;
+
+
+}
+
+
+
+.reveal.active{
+
+
+opacity:1;
+
+transform:translateY(0);
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Loading Animation
+==============================*/
+
+
+.loader-logo{
+
+
+animation:loaderRotate 2s linear infinite;
+
+
+}
+
+
+
+@keyframes loaderRotate{
+
+
+0%{
+
+transform:rotateY(0deg);
+
+}
+
+
+100%{
+
+transform:rotateY(360deg);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Hover Scale
+==============================*/
+
+
+.hover-scale{
+
+
+transition:.35s;
+
+
+}
+
+
+
+.hover-scale:hover{
+
+
+transform:scale(1.05);
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        Smooth Section
+==============================*/
+
+
+section{
+
+
+animation:sectionFade .8s ease;
+
+
+}
+
+
+
+@keyframes sectionFade{
+
+
+from{
+
+
+opacity:0;
+
+
+}
+
+
+
+to{
+
+
+opacity:1;
+
+
+}
+
+
+
+}
+
+
+/*==============================
+        END animations.css
+==============================*/
