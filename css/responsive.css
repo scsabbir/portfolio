@@ -1,1 +1,591 @@
+/*==================================================
+    Sabbir Portfolio Pro
+    File : responsive.css
+==================================================*/
 
+
+/*==============================
+        1200px
+==============================*/
+
+@media(max-width:1200px){
+
+
+.container{
+
+    width:92%;
+
+}
+
+
+
+.hero-left h1{
+
+    font-size:55px;
+
+}
+
+
+.profile-card{
+
+    width:380px;
+
+}
+
+
+
+.about-wrapper{
+
+    grid-template-columns:350px 1fr;
+
+    gap:50px;
+
+}
+
+
+
+.stats-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+
+.github-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+
+.footer-top{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+
+}
+
+
+
+
+
+
+/*==============================
+        992px
+==============================*/
+
+
+@media(max-width:992px){
+
+
+
+section{
+
+    padding:90px 0;
+
+}
+
+
+
+
+
+/* Header */
+
+
+.nav-links{
+
+    position:fixed;
+
+    top:90px;
+
+    left:-100%;
+
+    width:100%;
+
+    height:calc(100vh - 90px);
+
+    background:#0F172A;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:30px;
+
+    transition:.4s;
+
+}
+
+
+
+.nav-links.active{
+
+    left:0;
+
+}
+
+
+
+.menu-btn{
+
+    display:block;
+
+}
+
+
+
+.header-buttons .hire-btn{
+
+    display:none;
+
+}
+
+
+
+
+/* Hero */
+
+
+.hero-container{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+
+
+.hero-left p{
+
+    margin:auto;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+
+
+.hero-social{
+
+    justify-content:center;
+
+}
+
+
+
+.hero-right{
+
+    margin-top:50px;
+
+}
+
+
+
+.profile-card{
+
+    width:350px;
+
+}
+
+
+
+
+/* About */
+
+
+.about-wrapper{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+
+
+.about-image{
+
+    max-width:400px;
+
+    margin:auto;
+
+}
+
+
+
+.about-info{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+
+
+.about-buttons{
+
+    justify-content:center;
+
+}
+
+
+
+
+
+/* Journey */
+
+
+.journey-wrapper{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+
+
+.contact-wrapper{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+
+
+.footer-top{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+/*==============================
+        768px
+==============================*/
+
+
+@media(max-width:768px){
+
+
+
+.section-header h2{
+
+    font-size:34px;
+
+}
+
+
+
+
+.hero-left h1{
+
+    font-size:45px;
+
+}
+
+
+
+.hero-left h2{
+
+    font-size:25px;
+
+}
+
+
+
+.profile-card{
+
+    width:300px;
+
+}
+
+
+
+.experience-card{
+
+    right:-10px;
+
+    width:150px;
+
+}
+
+
+
+.experience-card h2{
+
+    font-size:32px;
+
+}
+
+
+
+
+
+.about-info{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+
+
+.stats-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+
+
+.skills-grid,
+.services-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+
+
+.projects-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.project-filter button{
+
+    padding:10px 20px;
+
+}
+
+
+
+
+
+.timeline-item{
+
+    margin-left:40px;
+
+}
+
+
+
+
+
+.contact-form{
+
+    padding:25px;
+
+}
+
+
+
+
+
+.footer-top{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+
+
+.footer-bottom{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+
+
+
+
+.cursor,
+.cursor-dot{
+
+    display:none;
+
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/*==============================
+        576px
+==============================*/
+
+
+@media(max-width:576px){
+
+
+
+.logo{
+
+    font-size:25px;
+
+}
+
+
+
+#theme-toggle{
+
+    width:42px;
+
+    height:42px;
+
+}
+
+
+
+.hero-left h1{
+
+    font-size:38px;
+
+}
+
+
+
+.hero-left h2{
+
+    font-size:22px;
+
+}
+
+
+
+.hero-badge{
+
+    font-size:13px;
+
+}
+
+
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+
+
+.secondary-btn{
+
+    margin-left:0;
+
+}
+
+
+
+.profile-card{
+
+    width:270px;
+
+}
+
+
+
+.experience-card{
+
+    bottom:15px;
+
+    right:-20px;
+
+}
+
+
+
+.section-header h2{
+
+    font-size:30px;
+
+}
+
+
+
+.service-card,
+.skill-card{
+
+    padding:25px;
+
+}
+
+
+
+.project-content h3{
+
+    font-size:22px;
+
+}
+
+
+
+.contact-card{
+
+    padding:18px;
+
+}
+
+
+
+#backToTop{
+
+    right:20px;
+
+    bottom:20px;
+
+    width:45px;
+
+    height:45px;
+
+}
+
+
+
+}
